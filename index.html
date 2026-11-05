@@ -3,13 +3,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Mike Email Assistant</title>
+<title>Personal Email Assistant</title>
 <style>
 body{margin:0;background:#f7f8f6;color:#17221e;font:17px/1.65 system-ui,sans-serif}main{max-width:740px;margin:60px auto;padding:0 24px 70px}h1{font-size:38px;line-height:1.2;letter-spacing:-1.2px}h2{font-size:24px;margin-top:36px;letter-spacing:-.4px}p,li{max-width:68ch}a{color:#1c6250}nav{display:flex;gap:22px;border-bottom:1px solid #d8e0db;padding-bottom:18px}.tag{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#52665b}footer{margin-top:46px;border-top:1px solid #d8e0db;padding-top:20px;font-size:14px;color:#52665b}
 </style>
 <main>
 <p class="tag">Private personal utility</p>
-<h1>Mike Email Assistant</h1>
+<h1>Personal Email Assistant</h1>
 <p>A personal cloud service that helps its owner review email, track replies and commitments, and keep Gmail organized.</p>
 <nav aria-label="Page sections"><a href="#privacy">Privacy policy</a><a href="#use">Personal use</a></nav>
 <p>The service works only with the owner's specifically authorized accounts. It has no public signup and is not offered as a service to other people.</p>
@@ -17,9 +17,8 @@ body{margin:0;background:#f7f8f6;color:#17221e;font:17px/1.65 system-ui,sans-ser
 <p><strong>Information accessed.</strong> The assistant reads email text, subjects, sender and recipient addresses, timestamps, conversation identifiers, and labels. It does not fetch attachments or open links in messages.</p>
 <p><strong>Purpose.</strong> It uses this information to identify conversations requiring attention, track unresolved commitments, detect replies, and propose or apply approved Gmail labels and archive actions. During observation, it records proposed actions without changing the mailbox.</p>
 <p><strong>Permissions.</strong> The primary account uses Google's Gmail modification permission. Google includes sending within that permission, but the application blocks sending, forwarding, deletion, and Trash operations. A secondary account is connected with read-only permission. Private briefings are inserted into the owner's Gmail and are not delivered to recipients.</p>
-<p><strong>Processing and storage.</strong> The service runs in the owner's Google Cloud project. Selected message text and metadata are sent to the OpenAI API for classification. Requests disable response storage; provider service terms and retention rules still apply. The model has no credentials or executable tools. Google Cloud stores short evidence excerpts, message identifiers, subjects, decisions, follow-up dates, and change records. Full message bodies are not stored in the application database.</p>
-<p><strong>Credentials.</strong> Setup credentials are kept in 1Password. Runtime credentials are kept in Google Cloud Secret Manager. They are not included in model requests, source code, or application logs.</p>
-<p><strong>Retention and control.</strong> The owner can stop the cloud service and revoke access through Google Account connections. Revoking access stops future access but does not automatically delete existing application records. The owner must separately delete those records from the cloud project. Gmail messages remain in Gmail unless the owner changes them.</p>
+<p><strong>Processing and storage.</strong> Google Cloud runs the service and stores its task and change records. OpenAI processes selected email text to identify actions. The service screens for sensitive content and masks addresses, links and identifiers before model requests. This screening is not perfect; names and substantive text can remain. Model requests use the configured Zero Data Retention policy, subject to provider exceptions. Full email bodies are not stored in the application database. Credentials are not provided to the model.</p>
+<p><strong>Retention and control.</strong> Closed or inactive records and change records expire after 30 days; usage records expire after 90 days. Open obligations remain until resolved. Expiry deletion is asynchronous. The owner can stop processing, revoke access through Google Account connections, and separately remove application records. Revoking access does not automatically remove existing records. Gmail remains the email store.</p>
 <p><strong>Use of data.</strong> The application does not sell email data or use it for advertising. Its use of Google user data is limited to the personal email-management functions described here and is subject to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
 <h2 id="use">Personal use</h2>
 <p>This software is a private utility for its owner. There is no public account registration, paid offering, or support service. The owner controls deployment, credentials, access, and removal. This page explains the application for Google's authorization process; it does not provide access to the application or any mailbox.</p>
